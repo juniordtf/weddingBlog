@@ -2,12 +2,12 @@ import React, { useState, useRef } from "react";
 import { Route, Switch, BrowserRouter } from "react-router-dom";
 import { ThemeProvider } from "styled-components";
 import { useOnClickOutside } from "./hooks";
-import { GlobalStyles } from "./global";
 import { theme } from "./theme";
 import { Burger, Menu } from "./components";
 import FocusLock from "react-focus-lock";
-import routes, { getRouteByName } from "./routes";
+import routes from "./routes";
 import type { RouteDefinition } from "./routes";
+import styles from "./styles.module.css";
 
 function App() {
   const [open, setOpen] = useState(false);
@@ -19,7 +19,7 @@ function App() {
   return (
     <ThemeProvider theme={theme}>
       <BrowserRouter>
-        <>
+        <div className={styles.app}>
           <div ref={node}>
             <FocusLock disabled={!open}>
               <Burger open={open} setOpen={setOpen} aria-controls={menuId} />
@@ -37,7 +37,7 @@ function App() {
             ))}
             <Route />
           </Switch>
-        </>
+        </div>
       </BrowserRouter>
     </ThemeProvider>
   );

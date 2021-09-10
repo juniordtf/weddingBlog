@@ -11,7 +11,7 @@ export default function HomeView(): React$Element<*> {
       <img src={SerraDaMoeda} alt="Mountains" className={styles.mainImage} />
       <p className={styles.title}>Raíssa & Djalma</p>
       <p className={styles.title2}>03.09.22</p>
-      <p className={styles.body}>
+      <p className={styles.bodyText}>
         Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus cursus
         est sem. Morbi facilisis feugiat ante vitae ultrices. Sed dictum
         vehicula condimentum. Aenean et mi rutrum, placerat dolor a, viverra
@@ -30,6 +30,7 @@ export default function HomeView(): React$Element<*> {
         alt="Heart Divider"
         className={styles.bottomImage}
       />
+      <div className={styles.emptyDiv} />
     </div>
   );
 }

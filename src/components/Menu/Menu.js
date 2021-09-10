@@ -1,6 +1,7 @@
 import React from "react";
 import { bool } from "prop-types";
 import { StyledMenu } from "./Menu.styled";
+import Engagement from "./assets/engagement.png";
 
 const Menu = ({ open, ...props }) => {
   const isHidden = open ? true : false;
@@ -8,6 +9,11 @@ const Menu = ({ open, ...props }) => {
 
   return (
     <StyledMenu open={open} aria-hidden={!isHidden} {...props}>
+      <div>
+        <img src={Engagement} alt="Engagement" />
+        <h1>Raíssa & Djalma</h1>
+        <h2>03.09.22</h2>
+      </div>
       <a href="/" tabIndex={tabIndex}>
         <span aria-hidden="true">⌂ </span>
         Home

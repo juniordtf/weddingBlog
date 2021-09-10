@@ -4,55 +4,52 @@
   flex-direction: column;
   top: 0;
   left: 0;
-  width: 100%;
-  height: 100%;
+  overflow-y: scroll;
 }
 
 .mainImage {
-  width: 100%;
-  height: 100%;
   margin-bottom: 0px;
-  background-color: crimson;
+  width: 100%;
 }
 
 .title {
   font-family: "AppleChancery";
-  font-size: 48px;
+  font-size: 36px;
   text-align: center;
   color: black;
-  margin-top: 33.5px;
-  margin-left: 5%;
-  margin-right: 5%;
-  background-color: chocolate;
+  margin-top: 10px;
+  margin-left: 10%;
+  margin-right: 10%;
 }
 
 .title2 {
   font-family: "AndaleMono";
-  font-size: 36px;
+  font-size: 26px;
   text-align: center;
   color: black;
-  margin-top: 0px;
-  margin-left: 5%;
-  margin-right: 5%;
-  background-color: chartreuse;
+  margin-top: -32px;
+  margin-left: 10%;
+  margin-right: 10%;
 }
 
-.body {
+.bodyText {
   font-family: "LucidaCalligraphy";
   font-size: 16px;
   text-align: justify;
   color: black;
   margin-top: 0px;
-  background-color: chartreuse;
-  margin-left: 5%;
-  margin-right: 5%;
+  margin-left: 10%;
+  margin-right: 10%;
 }
 
 .bottomImage {
   display: block;
   margin-left: auto;
   margin-right: auto;
-  margin-top: 5px;
-  margin-bottom: 20px;
-  background-color: crimson;
+  margin-top: 40px;
+  margin-bottom: 0px;
+}
+
+.emptyDiv {
+  height: 20px;
 }
