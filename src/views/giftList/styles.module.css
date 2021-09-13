@@ -1,0 +1,28 @@
+.giftListView {
+  padding: 0;
+  margin: 0;
+  flex-direction: column;
+  top: 0;
+  left: 0;
+  overflow-y: scroll;
+}
+
+.title {
+  font-family: "AppleChancery";
+  font-size: 32px;
+  text-align: center;
+  color: black;
+  margin-top: 20px;
+  margin-left: 10%;
+  margin-right: 10%;
+}
+
+.bodyText {
+  font-family: "LucidaCalligraphy";
+  font-size: 14px;
+  text-align: justify;
+  color: black;
+  margin-top: 30px;
+  margin-left: 10%;
+  margin-right: 10%;
+}

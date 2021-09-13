@@ -4,10 +4,13 @@ export const StyledMenu = styled.nav`
   display: flex;
   flex-direction: column;
   justify-content: top;
+  position: ${({ mobile }) => (mobile ? "absolute" : "relative")};
   background: ${({ theme }) => theme.primaryLightGold};
   transform: ${({ open }) => (open ? "translateX(0)" : "translateX(-100%)")};
   text-align: left;
-  position: absolute;
+  width: ${({ open }) => (open ? "250px" : "0px")};
+  height: 100%;
+  visibility: ${({ open }) => (open ? "visible" : "collapse")};
   top: 0;
   left: 0;
   bottom: 0;
@@ -20,8 +23,8 @@ export const StyledMenu = styled.nav`
   }
 
   a {
-    font-size: 1rem;
-    padding: 1rem;
+    font-size: 0.8rem;
+    padding: 0.7rem;
     font-family: "Lucida Calligraphy";
     font-style: "italic";
     letter-spacing: 0.2rem;
@@ -53,7 +56,7 @@ export const StyledMenu = styled.nav`
   }
 
   h2 {
-    font-size: 1rem;
+    font-size: 0.9rem;
     font-family: "Andale Mono";
     font-style: "italic";
     font-weight: normal;

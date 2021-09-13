@@ -3,12 +3,12 @@ import { bool } from "prop-types";
 import { StyledMenu } from "./Menu.styled";
 import Engagement from "./assets/engagement.png";
 
-const Menu = ({ open, ...props }) => {
+const Menu = ({ open, mobile, ...props }) => {
   const isHidden = open ? true : false;
   const tabIndex = isHidden ? 0 : -1;
 
   return (
-    <StyledMenu open={open} aria-hidden={!isHidden} {...props}>
+    <StyledMenu open={open} mobile={mobile} aria-hidden={!isHidden} {...props}>
       <div>
         <img src={Engagement} alt="Engagement" />
         <h1>Raíssa & Djalma</h1>
@@ -44,6 +44,7 @@ const Menu = ({ open, ...props }) => {
 
 Menu.propTypes = {
   open: bool.isRequired,
+  mobile: bool.isRequired,
 };
 
 export default Menu;
