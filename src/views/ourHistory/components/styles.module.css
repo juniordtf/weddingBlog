@@ -1,0 +1,63 @@
+.slideContainer {
+  width: 75%;
+  margin: auto;
+}
+
+.fadeContainer {
+  width: 70%;
+  margin: auto;
+}
+
+h3 {
+  text-align: center;
+}
+
+.eachSlide > div {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-size: cover;
+  height: 300px;
+}
+
+.eachSlide span {
+  padding: 20px;
+  font-size: 20px;
+  background: #efefef;
+  text-align: center;
+}
+
+.eachFade {
+  display: flex;
+  height: 300px;
+}
+
+.eachFade .imageContainer {
+  width: 75%;
+  overflow: hidden;
+}
+
+.eachFade .imageContainer img {
+  width: 100%;
+}
+
+.eachFade h2 {
+  width: 25%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 0;
+  background: #adceed;
+}
+
+.indicator {
+  width: 30px;
+  color: blue;
+  text-align: center;
+  cursor: pointer;
+  border: 1px blue solid;
+}
+.indicator.active {
+  background: #000;
+  color: #fff;
+}

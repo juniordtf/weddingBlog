@@ -2,13 +2,13 @@ import styled from "styled-components";
 
 export const StyledBurger = styled.button`
   position: absolute;
-  top: 2%;
+  top: 3%;
   left: 2rem;
   display: flex;
   flex-direction: column;
   justify-content: space-around;
-  width: 2rem;
-  height: 2rem;
+  width: 1.5rem;
+  height: 1.5rem;
   background: transparent;
   border: none;
   cursor: pointer;
@@ -16,7 +16,7 @@ export const StyledBurger = styled.button`
   z-index: 10;
 
   span {
-    width: 2rem;
+    width: 1.5rem;
     height: 0.25rem;
     background: ${({ theme }) => theme.primaryDark};
     border-radius: 10px;

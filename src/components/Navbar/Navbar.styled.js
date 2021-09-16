@@ -7,7 +7,7 @@ export const StyledNavbar = styled.nav`
   align-items: center;
   background: ${({ theme }) => theme.primaryLightGold};
   text-align: left;
-  height: 85px;
+  height: 64px;
   top: 0;
   left: 0;
   right: 0;

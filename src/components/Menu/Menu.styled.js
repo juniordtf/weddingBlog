@@ -73,7 +73,7 @@ export const StyledMenu = styled.nav`
     display: block;
     margin-left: auto;
     margin-right: auto;
-    margin-top: 70px;
+    margin-top: 40px;
   }
 
   div {

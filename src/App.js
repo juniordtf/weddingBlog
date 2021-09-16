@@ -21,10 +21,10 @@ function App() {
     <ThemeProvider theme={theme}>
       <BrowserRouter>
         <div className={styles.mobileApp}>
-          {width < 576 ? <Navbar /> : <div />}
+          {width < 600 ? <Navbar /> : <div />}
           <div className={styles.webApp}>
             <div ref={node}>
-              {width < 576 ? (
+              {width < 600 ? (
                 <FocusLock disabled={!open}>
                   <Burger
                     open={open}

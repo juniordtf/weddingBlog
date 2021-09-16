@@ -1,0 +1,58 @@
+.ourHistoryView {
+  padding: 0;
+  margin: 0;
+  flex-direction: column;
+  top: 0;
+  left: 0;
+  overflow-y: scroll;
+}
+
+.title {
+  font-family: "AppleChancery";
+  font-size: 32px;
+  text-align: center;
+  color: black;
+  margin-top: 20px;
+  margin-left: 10%;
+  margin-right: 10%;
+}
+
+.bodyText {
+  font-family: "LucidaCalligraphy";
+  font-size: 14px;
+  text-align: justify;
+  color: black;
+  margin-top: 38px;
+  margin-left: 10%;
+  margin-right: 10%;
+}
+
+.decorator {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: -20px;
+}
+
+.mainImagesContainer {
+  margin-top: 40px;
+  display: "flex";
+  flex-direction: "row";
+  align-items: "center";
+  justify-content: center;
+  text-align: center;
+}
+
+.leftImage {
+  margin-right: 15px;
+  margin-left: 15px;
+}
+
+.rightImage {
+  margin-right: 15px;
+  margin-left: 15px;
+}
+
+.emptyDiv {
+    height: 40px;
+  }
