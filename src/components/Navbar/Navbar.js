@@ -1,5 +1,4 @@
 import React from "react";
-import { bool, func } from "prop-types";
 import { StyledNavbar } from "./Navbar.styled";
 
 const Navbar = () => {

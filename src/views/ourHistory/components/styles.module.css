@@ -17,7 +17,11 @@ h3 {
   align-items: center;
   justify-content: center;
   background-size: cover;
-  height: 300px;
+  object-fit: cover;
+  height: 400px;
+  width: 100%;
+  background-size: cover;
+  background-position: center center;
 }
 
 .eachSlide span {

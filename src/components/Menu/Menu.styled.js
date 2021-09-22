@@ -12,8 +12,8 @@ export const StyledMenu = styled.nav`
   visibility: ${({ open }) => (open ? "visible" : "collapse")};
   top: 0;
   left: 0;
-  bottom: 0;
   border-right: 1px solid gray;
+  z-index: 300;
 
   transition: transform 0.3s ease-in-out;
 
@@ -26,7 +26,7 @@ export const StyledMenu = styled.nav`
     padding: 0.7rem;
     font-family: "Lucida Calligraphy";
     font-style: "italic";
-    letter-spacing: 0.2rem;
+    letter-spacing: 0.1rem;
     color: ${({ theme }) => theme.primaryDark};
     text-decoration: none;
     border-bottom: 1px solid gray;
@@ -34,7 +34,8 @@ export const StyledMenu = styled.nav`
 
     @media (max-width: ${({ theme }) => theme.mobile}) {
       font-size: 1rem;
-      text-align: center;
+      text-align: left;
+      padding: 5%;
     }
 
     &:hover {

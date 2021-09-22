@@ -10,7 +10,7 @@ import type { RouteDefinition } from "./routes";
 import styles from "./styles.module.css";
 
 function App() {
-  const [open, setOpen] = useState(true);
+  const [open, setOpen] = useState(false);
   const [isMobile, setIsMobile] = useState(false);
   const node = useRef();
   const menuId = "main-menu";
@@ -21,9 +21,9 @@ function App() {
   useEffect((): void => {
     if (width < 600) {
       setIsMobile(true);
-      console.log(width);
+    } else {
+      setIsMobile(false);
     }
-    console.log("Width = ", width);
   }, [width]);
 
   return (
@@ -48,12 +48,7 @@ function App() {
                   />
                 </FocusLock>
               ) : (
-                <Menu
-                  open={open}
-                  setOpen={setOpen}
-                  mobile={false}
-                  id={menuId}
-                />
+                <Menu open={true} setOpen={true} mobile={false} id={menuId} />
               )}
             </div>
             <Switch>
