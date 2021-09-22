@@ -7,14 +7,19 @@
   overflow-y: scroll;
 }
 
+.titleContainer {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: 20px;
+  height: 50px;
+}
+
 .title {
   font-family: "AppleChancery";
   font-size: 32px;
-  text-align: center;
   color: black;
-  margin-top: 20px;
-  margin-left: auto;
-  margin-right: auto;
+  margin-left: 10px;
 }
 
 .bodyText {
@@ -35,4 +40,10 @@
   width: 50%;
   margin-top: 40px;
   margin-bottom: 20px;
+}
+
+.pinImage {
+  display: block;
+  width: 32px;
+  left: 32px;
 }

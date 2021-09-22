@@ -1,4 +1,4 @@
-import React, { useState, useRef } from "react";
+import React, { useState, useEffect, useRef } from "react";
 import { Route, Switch, BrowserRouter } from "react-router-dom";
 import { ThemeProvider } from "styled-components";
 import { useOnClickOutside, useWindowSize } from "./hooks";
@@ -11,20 +11,29 @@ import styles from "./styles.module.css";
 
 function App() {
   const [open, setOpen] = useState(true);
+  const [isMobile, setIsMobile] = useState(false);
   const node = useRef();
   const menuId = "main-menu";
   const { width } = useWindowSize();
 
-  //useOnClickOutside(node, () => setOpen(false));
+  useOnClickOutside(node, () => (width < 600 ? setOpen(false) : null));
+
+  useEffect((): void => {
+    if (width < 600) {
+      setIsMobile(true);
+      console.log(width);
+    }
+    console.log("Width = ", width);
+  }, [width]);
 
   return (
     <ThemeProvider theme={theme}>
       <BrowserRouter>
         <div className={styles.mobileApp}>
-          {width < 600 ? <Navbar /> : <div />}
+          {isMobile ? <Navbar /> : <div />}
           <div className={styles.webApp}>
             <div ref={node}>
-              {width < 600 ? (
+              {isMobile ? (
                 <FocusLock disabled={!open}>
                   <Burger
                     open={open}
