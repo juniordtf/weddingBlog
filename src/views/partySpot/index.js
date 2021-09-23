@@ -2,6 +2,7 @@ import React from "react";
 import styles from "./styles.module.css";
 import PartySpot from "./assets/partySpot.png";
 import Pin from "./assets/pin.png";
+import { MapContainer } from "../../components";
 
 export default function PartySpotView(): React$Element<*> {
   return (
@@ -15,6 +16,10 @@ export default function PartySpotView(): React$Element<*> {
         mauris et magna tempus euismod. Quisque fermentum enim a tellus.
       </p>
       <img src={PartySpot} alt="Party Spot" className={styles.mainImage} />
+      <div className={styles.mapContainer}>
+        <MapContainer />
+      </div>
+      <div className={styles.emptyDiv} />
     </div>
   );
 }
