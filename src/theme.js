@@ -4,7 +4,8 @@ export const theme = {
   primaryHover: "#343078",
   primaryGray: "#d8d8d8",
   primaryBrown: "#4f4646",
-  primaryLightGold: "#CFCDA5",
+  primaryLightGold: "#E3DFB2",
+  secondaryGold: "#CFCDA5",
   secondaryLight: "#f6f6f6",
   mobile: "600px",
 };

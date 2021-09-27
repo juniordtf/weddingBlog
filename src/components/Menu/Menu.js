@@ -38,6 +38,10 @@ const Menu = ({ open, mobile, ...props }) => {
         <span aria-hidden="true">📩 </span>
         Recados
       </a>
+      <a href="/mensagens" tabIndex={tabIndex}>
+        <span aria-hidden="true">✔️ </span>
+        Confirme sua presença
+      </a>
     </StyledMenu>
   );
 };

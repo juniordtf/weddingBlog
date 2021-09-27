@@ -34,13 +34,13 @@ export const StyledMenu = styled.nav`
     transition: color 0.3s linear;
 
     @media (max-width: ${({ theme }) => theme.mobile}) {
-      font-size: 1rem;
+      font-size: 0.9rem;
       text-align: left;
       padding: 5%;
     }
 
     &:hover {
-      color: ${({ theme }) => theme.primaryHover};
+      background-color: ${({ theme }) => theme.secondaryGold};
     }
   }
 

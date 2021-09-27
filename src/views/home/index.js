@@ -25,6 +25,14 @@ export default function HomeView(): React$Element<*> {
         Phasellus nec lorem ante. Praesent ac augue risus. Quisque malesuada leo
         eget augue imperdiet condimentum.
       </p>
+      <iframe
+        className={styles.youtubeVideo}
+        src="https://www.youtube.com/embed/nigF1ulBCQE"
+        title="YouTube video player"
+        frameborder="0"
+        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+        allowfullscreen
+      />
       <img
         src={HeartDivider}
         alt="Heart Divider"
