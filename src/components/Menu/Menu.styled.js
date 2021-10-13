@@ -9,7 +9,6 @@ export const StyledMenu = styled.nav`
   transform: ${({ open }) => (open ? "translateX(0)" : "translateX(-100%)")};
   width: ${({ open }) => (open ? "250px" : "0px")};
   height: 100%;
-  visibility: ${({ open }) => (open ? "visible" : "collapse")};
   top: 0;
   left: 0;
   border-right: 1px solid gray;
@@ -19,7 +18,7 @@ export const StyledMenu = styled.nav`
   transition: transform 0.3s ease-in-out;
 
   @media (max-width: ${({ theme }) => theme.mobile}) {
-    width: 70%;
+    width: 75%;
   }
 
   a {

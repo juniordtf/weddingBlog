@@ -4,8 +4,11 @@ import React from "react";
 import styles from "./styles.module.css";
 import SerraDaMoeda from "./assets/serraDaMoeda.png";
 import HeartDivider from "./assets/heart-divider.png";
+import { useWindowSize } from "../../hooks";
 
 export default function HomeView(): React$Element<*> {
+  const { screenWidth } = useWindowSize();
+
   return (
     <div className={styles.homeView}>
       <img src={SerraDaMoeda} alt="Mountains" className={styles.mainImage} />
@@ -25,9 +28,10 @@ export default function HomeView(): React$Element<*> {
         Phasellus nec lorem ante. Praesent ac augue risus. Quisque malesuada leo
         eget augue imperdiet condimentum.
       </p>
+      <p className={styles.bodyText}>{screenWidth}</p>
       <iframe
         className={styles.youtubeVideo}
-        src="https://www.youtube.com/embed/nigF1ulBCQE"
+        src="https://www.youtube.com/embed/jiQiJ0WURZI"
         title="YouTube video player"
         frameborder="0"
         allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"

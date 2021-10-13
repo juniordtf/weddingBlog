@@ -38,7 +38,7 @@ const Menu = ({ open, mobile, ...props }) => {
         <span aria-hidden="true">📩 </span>
         Recados
       </a>
-      <a href="/mensagens" tabIndex={tabIndex}>
+      <a href="/rsvp" tabIndex={tabIndex}>
         <span aria-hidden="true">✔️ </span>
         Confirme sua presença
       </a>

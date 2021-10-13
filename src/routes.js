@@ -33,6 +33,10 @@ const routes: Array<RouteDefinition> = [
     path: "/mensagens",
     name: "messages",
   },
+  {
+    path: "/rsvp",
+    name: "rsvp",
+  },
 ];
 
 export const getRouteByName = (name: string): RouteDefinition => {
