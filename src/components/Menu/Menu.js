@@ -2,6 +2,7 @@ import React from "react";
 import { bool } from "prop-types";
 import { StyledMenu } from "./Menu.styled";
 import Engagement from "./assets/engagement.png";
+import Monograma from "./assets/MonogramaEFlores.png";
 
 const Menu = ({ open, mobile, ...props }) => {
   const isHidden = open ? true : false;
@@ -10,7 +11,7 @@ const Menu = ({ open, mobile, ...props }) => {
   return (
     <StyledMenu open={open} mobile={mobile} aria-hidden={!isHidden} {...props}>
       <div>
-        <img src={Engagement} alt="Engagement" />
+        <img src={Monograma} alt="Monograma" width="232" height="104" />
         <h1>Raíssa & Djalma</h1>
         <h2>03.09.22</h2>
       </div>

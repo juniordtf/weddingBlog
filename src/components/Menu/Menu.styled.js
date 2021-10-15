@@ -53,6 +53,7 @@ export const StyledMenu = styled.nav`
     text-decoration: none;
     text-align: center;
     transition: color 0.3s linear;
+    margin-top: -5px;
   }
 
   h2 {
@@ -73,7 +74,7 @@ export const StyledMenu = styled.nav`
     display: block;
     margin-left: auto;
     margin-right: auto;
-    margin-top: 40px;
+    margin-top: 30px;
   }
 
   div {
