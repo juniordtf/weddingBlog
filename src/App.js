@@ -21,8 +21,10 @@ function App() {
   useEffect((): void => {
     if (width < 600) {
       setIsMobile(true);
+      localStorage.setItem("isMobile", true);
     } else {
       setIsMobile(false);
+      localStorage.setItem("isMobile", false);
     }
   }, [width]);
 

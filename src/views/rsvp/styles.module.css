@@ -26,4 +26,36 @@
     margin-left: 10%;
     margin-right: 10%;
   }
+
+  .messageInputContainer {
+    margin-left: 12%;
+    margin-right: 12%;
+    margin-top: 40px;
+    border-radius: 5px;
+    padding: 3%;
+    background-color: #eaeaea;
+  }
   
+  .label {
+    font-family: "LucidaCalligraphy";
+    font-size: 16px;
+    text-align: left;
+    color: black;
+  }
+  
+  .inputField {
+    width: 100%;
+    padding: 12px 20px;
+    margin: 8px 0;
+    display: inline-block;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+    font-family: "AndaleMono";
+    font-size: 14px;
+  }
+  
+  .submitContainer {
+    display: flex;
+    justify-content: flex-end;
+  }

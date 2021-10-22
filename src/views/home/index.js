@@ -1,13 +1,26 @@
 // @flow
-
-import React from "react";
+import React, { useState, useEffect } from "react";
 import styles from "./styles.module.css";
 import SerraDaMoeda from "./assets/serraDaMoeda.png";
 import HeartDivider from "./assets/heart-divider.png";
 import { useWindowSize } from "../../hooks";
 
 export default function HomeView(): React$Element<*> {
-  const { screenWidth } = useWindowSize();
+  const [isMobile, setIsMobile] = useState(true);
+
+  useEffect((): void => {
+    getWidth();
+  }, []);
+
+  async function getWidth() {
+    try {
+      const result = await JSON.parse(localStorage.getItem("isMobile"));
+      console.log(result);
+      setIsMobile(result);
+    } catch {
+      console.log("Error retrieving messages");
+    }
+  }
 
   return (
     <div className={styles.homeView}>
@@ -28,14 +41,14 @@ export default function HomeView(): React$Element<*> {
         Phasellus nec lorem ante. Praesent ac augue risus. Quisque malesuada leo
         eget augue imperdiet condimentum.
       </p>
-      <p className={styles.bodyText}>{screenWidth}</p>
       <iframe
         className={styles.youtubeVideo}
+        width={isMobile ? 300 : 520}
         src="https://www.youtube.com/embed/jiQiJ0WURZI"
         title="YouTube video player"
-        frameborder="0"
+        frameBorder="0"
         allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-        allowfullscreen
+        allowFullScreen
       />
       <img
         src={HeartDivider}
