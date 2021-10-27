@@ -4,6 +4,7 @@
   flex-direction: column;
   top: 0;
   left: 0;
+  width: 100%;
   overflow-y: scroll;
 }
 
@@ -35,40 +36,24 @@
 }
 
 .rightImage {
-  margin-right: 15px;
-  margin-left: 15px;
-  margin-top: 40px;
+  margin: 10px 20px;
   float: right;
 }
 
 .leftImage {
-  margin-right: 15px;
-  margin-left: 15px;
+  margin: 10px 20px;
   float: left;
 }
 
-.rightText {
+.cardText {
   font-family: "LucidaCalligraphy";
   font-size: 14px;
   text-align: justify;
   color: black;
-  float: right;
-  width: 600px;
-  margin-right: 15px;
-  margin-left: 15px;
-  margin-top: 25px;
-  margin-bottom: 15px;
+  display: block;
+  margin-block-start: 1em;
+  margin-block-end: 1em;
+  margin-inline-start: 0px;
+  margin-inline-end: 0px;
 }
 
-.leftText {
-  font-family: "LucidaCalligraphy";
-  font-size: 14px;
-  text-align: justify;
-  color: black;
-  float: left;
-  width: 600px;
-  margin-right: 15px;
-  margin-left: 15px;
-  margin-top: 60px;
-  margin-bottom: 15px;
-}

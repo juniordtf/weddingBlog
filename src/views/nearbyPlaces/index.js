@@ -21,7 +21,7 @@ export default function NearbyPlacesView(): React$Element<*> {
           alt=" Hotel Serra da Moeda"
           className={styles.leftImage}
         />
-        <p className={styles.rightText}>
+        <p className={styles.cardText}>
           Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum
           tellus diam, volutpat lacinia tincidunt eu, viverra ut ex. In finibus
           vulputate odio. Nullam non nunc nisl. Maecenas eget rutrum arcu.
@@ -37,7 +37,7 @@ export default function NearbyPlacesView(): React$Element<*> {
           alt=" Hotel Moedense"
           className={styles.rightImage}
         />
-        <p className={styles.leftText}>
+        <p className={styles.cardText}>
           Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum
           tempus facilisis magna sit amet iaculis. Ut vel mollis diam, in
           lacinia nulla. Nulla sed luctus nibh, sit amet gravida arcu. Morbi
@@ -48,6 +48,14 @@ export default function NearbyPlacesView(): React$Element<*> {
           ultrices.
         </p>
       </div>
+      <p className={styles.bodyText}>
+        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse sit
+        amet fringilla augue. Aliquam erat volutpat. Duis feugiat porta urna ut
+        condimentum. Curabitur justo purus, tempus non eleifend in, ornare ut
+        massa. Vivamus dapibus in odio ut pharetra. Fusce eget egestas ex, ac
+        blandit magna. Mauris viverra lectus sed enim eleifend maximus. Sed nibh
+        ex, aliquet eget vehicula vel, pulvinar.
+      </p>
     </div>
   );
 }
