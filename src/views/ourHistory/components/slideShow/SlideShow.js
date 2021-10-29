@@ -4,6 +4,7 @@ import "react-slideshow-image/dist/styles.css";
 import styles from "../styles.module.css";
 
 const slideImages = [
+  "https://drive.google.com/uc?id=10wSlJwr3xh-rW6bcYI4XDtCv9bRYQRLG",
   "https://drive.google.com/uc?id=1-GBO8GIJJZhABTMw2-KwGziWnhSPGLEZ",
   "https://drive.google.com/uc?id=1-XJT3omGN8QaAgCEaN4MKHukqpWdx3et",
 ];
