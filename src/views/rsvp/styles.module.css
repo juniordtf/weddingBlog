@@ -5,7 +5,7 @@
     top: 0;
     left: 0;
     width: 100%;
-    overflow-y: scroll;
+    overflow-y: auto;
   }
   
   .title {
@@ -55,8 +55,51 @@
     font-family: "AndaleMono";
     font-size: 14px;
   }
+
+  .messageInputField {
+    width: 100%;
+    padding: 12px 20px;
+    margin: 8px 0;
+    display: inline-block;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+    font-family: "AndaleMono";
+    font-size: 14px;
+    height: 100px;
+  }
+
+  .formItemUp {
+    width: 100%;
+    margin-top: 20px;
+    margin-bottom: 20px;
+  }
+
+  .formItemBottom {
+    width: 100%;
+    margin-bottom: 24px;
+  }
+
+  .leftSide {
+    float: left;
+    width: 100px;
+  }
+
+  .RightSide {
+    float:initial;
+    margin-top: 5px;
+  }
+
+  .dropDown {
+    margin-left: 5px;
+    width: 40px;
+  }
   
   .submitContainer {
     display: flex;
     justify-content: flex-end;
+  }
+
+  .emptyDiv {
+    height: 40px;
   }

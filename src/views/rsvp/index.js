@@ -4,6 +4,7 @@ import styles from "./styles.module.css";
 export default function Rsvp(): React$Element<*> {
   const [sender, setSender] = useState("");
   const [email, setEmail] = useState("");
+  const cardinalNumbers = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
 
   function submit() {}
 
@@ -31,20 +32,47 @@ export default function Rsvp(): React$Element<*> {
             value={email}
             onChange={(e) => setEmail(e.target.value)}
           />
-          <label className={styles.label}>Você irá ao evento?</label>
-          <label>
-            <input type="radio" value="Sim" name="confirmation" />
-            <span>Sim</span>
-          </label>
-          <label>
-            <input type="radio" value="Não" name="confirmation" />
-            <span>Não</span>
-          </label>
+          <div className={styles.formItemUp}>
+            <div className={styles.LeftSide}>
+              <label className={styles.label}>Você irá ao evento?</label>
+            </div>
+            <div className={styles.RightSide}>
+              <label className={styles.label}>
+                <input type="radio" value="Sim" name="confirmation" />
+                <span>Sim</span>
+              </label>
+              <label className={styles.label}>
+                <input type="radio" value="Não" name="confirmation" />
+                <span>Não</span>
+              </label>
+            </div>
+          </div>
+          <div className={styles.formItemBottom}>
+            <div className={styles.LeftSide}>
+              <label for="peopleNumber" className={styles.label}>
+                Quantidade de adultos incluindo você:
+              </label>
+            </div>
+            <div className={styles.RightSide}>
+              <select
+                id="peopleNumber"
+                name="peopleNumber"
+                className={styles.dropDown}
+              >
+                {cardinalNumbers.map((index) => (
+                  <option value={index}>{index}</option>
+                ))}
+              </select>
+            </div>
+          </div>
+          <label className={styles.label}>Observações</label>
+          <textarea className={styles.messageInputField} />
           <div className={styles.submitContainer}>
             <input type="submit" value="Enviar" onClick={() => submit()} />
           </div>
         </form>
       </div>
+      <div className={styles.emptyDiv} />
     </div>
   );
 }
