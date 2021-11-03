@@ -1,10 +1,16 @@
 import React, { useState, useEffect } from "react";
 import styles from "./styles.module.css";
+import ReCAPTCHA from "react-google-recaptcha";
+import { WEDDING_BLOG_RECAPTCHA_KEY } from "../../config/local.env.js";
 
 export default function Rsvp(): React$Element<*> {
   const [sender, setSender] = useState("");
   const [email, setEmail] = useState("");
   const cardinalNumbers = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
+
+  function onChange(value) {
+    console.log("Captcha value:", value);
+  }
 
   function submit() {}
 
@@ -67,6 +73,7 @@ export default function Rsvp(): React$Element<*> {
           </div>
           <label className={styles.label}>Observações</label>
           <textarea className={styles.messageInputField} />
+          <ReCAPTCHA sitekey={WEDDING_BLOG_RECAPTCHA_KEY} onChange={onChange} />
           <div className={styles.submitContainer}>
             <input type="submit" value="Enviar" onClick={() => submit()} />
           </div>

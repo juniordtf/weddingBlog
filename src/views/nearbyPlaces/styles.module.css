@@ -29,6 +29,7 @@
 }
 
 .row {
+  height: 230px;
   margin-top: 40px;
   display: "flex";
   margin-left: 10%;
