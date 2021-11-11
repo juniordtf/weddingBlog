@@ -1,20 +1,48 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import styles from "./styles.module.css";
 import ReCAPTCHA from "react-google-recaptcha-enterprise";
-import { WEDDING_BLOG_RECAPTCHA_KEY } from "../../config/local.env.js";
+import {
+  WEDDING_BLOG_RECAPTCHA_KEY,
+  EMAIL_JS_SERVICE_ID,
+  EMAIL_JS_TEMPLATE_ID,
+  EMAIL_JS_USER_ID,
+} from "../../config/local.env.js";
+import emailjs from "emailjs-com";
 
 export default function Rsvp(): React$Element<*> {
-  const [sender, setSender] = useState("");
-  const [email, setEmail] = useState("");
-  const [isSubmitBtnDisabled, setIsSubmitBtnDisabled] = useState(true);
   const cardinalNumbers = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
+  const confirmationOptions = ["Sim", "Não"];
+  const initialData = {
+    from_name: "",
+    to_name: "Raissa e Djalma",
+    email: "",
+    confirmation: "",
+    peopleNumber: "",
+    message: "",
+  };
+  const [toSend, setToSend] = useState(initialData);
 
   function onChange(value) {
     console.log("Captcha value:", value);
-    setIsSubmitBtnDisabled(false);
   }
 
-  function submit() {}
+  const handleChange = (e) => {
+    setToSend({ ...toSend, [e.target.name]: e.target.value });
+  };
+
+  const sendEmail = (e) => {
+    e.preventDefault();
+
+    emailjs
+      .send(EMAIL_JS_SERVICE_ID, EMAIL_JS_TEMPLATE_ID, toSend, EMAIL_JS_USER_ID)
+      .then((response) => {
+        console.log("SUCCESS!", response.status, response.text);
+        setToSend(initialData);
+      })
+      .catch((err) => {
+        console.log("FAILED...", err);
+      });
+  };
 
   return (
     <div className={styles.rsvp}>
@@ -24,35 +52,40 @@ export default function Rsvp(): React$Element<*> {
         mauris et magna tempus euismod. Quisque fermentum enim a tellus.
       </p>
       <div className={styles.messageInputContainer}>
-        <form>
+        <form onSubmit={sendEmail}>
           <label className={styles.label}>Nome Completo</label>
           <input
             className={styles.inputField}
             type="text"
-            value={sender}
-            onChange={(e) => setSender(e.target.value)}
+            name="from_name"
+            value={toSend.from_name}
+            onChange={handleChange}
           />
           <label className={styles.label}>Email</label>
           <input
             className={styles.inputField}
             type="text"
             placeHolder="exemplo@mail.com"
-            value={email}
-            onChange={(e) => setEmail(e.target.value)}
+            name="email"
+            value={toSend.email}
+            onChange={handleChange}
           />
           <div className={styles.formItemUp}>
             <div className={styles.LeftSide}>
               <label className={styles.label}>Você irá ao evento?</label>
             </div>
             <div className={styles.RightSide}>
-              <label className={styles.label}>
-                <input type="radio" value="Sim" name="confirmation" />
-                <span>Sim</span>
-              </label>
-              <label className={styles.label}>
-                <input type="radio" value="Não" name="confirmation" />
-                <span>Não</span>
-              </label>
+              {confirmationOptions.map((index) => (
+                <label className={styles.label}>
+                  <input
+                    type="radio"
+                    name="confirmation"
+                    value={index}
+                    onChange={handleChange}
+                  />
+                  <span>{index}</span>
+                </label>
+              ))}
             </div>
           </div>
           <div className={styles.formItemBottom}>
@@ -65,6 +98,8 @@ export default function Rsvp(): React$Element<*> {
               <select
                 id="peopleNumber"
                 name="peopleNumber"
+                value={toSend.peopleNumber}
+                onChange={handleChange}
                 className={styles.dropDown}
               >
                 {cardinalNumbers.map((index) => (
@@ -74,15 +109,15 @@ export default function Rsvp(): React$Element<*> {
             </div>
           </div>
           <label className={styles.label}>Observações</label>
-          <textarea className={styles.messageInputField} />
+          <textarea
+            className={styles.messageInputField}
+            name="message"
+            value={toSend.message}
+            onChange={handleChange}
+          />
           <ReCAPTCHA sitekey={WEDDING_BLOG_RECAPTCHA_KEY} onChange={onChange} />
           <div className={styles.submitContainer}>
-            <input
-              type="submit"
-              value="Enviar"
-              disabled={isSubmitBtnDisabled}
-              onClick={() => submit()}
-            />
+            <input type="submit" value="Enviar" />
           </div>
         </form>
       </div>

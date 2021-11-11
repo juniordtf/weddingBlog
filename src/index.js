@@ -17,6 +17,7 @@ import { getAnalytics } from "firebase/analytics";
 const firebaseConfig = {
   apiKey: "AIzaSyDcfw7oaBYN3wnzLuVhUOzO_bRPb_Fj8x0",
   authDomain: "wedding-blog-326910.firebaseapp.com",
+  databaseURL: "https://wedding-blog-326910-default-rtdb.firebaseio.com",
   projectId: "wedding-blog-326910",
   storageBucket: "wedding-blog-326910.appspot.com",
   messagingSenderId: "1008104200366",
