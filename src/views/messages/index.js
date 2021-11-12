@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { getDatabase } from "firebase/database";
+import { db } from "../../services/firebase.js";
 import styles from "./styles.module.css";
 import { format } from "date-fns";
 
@@ -11,7 +11,6 @@ export default function MessagesView(): React$Element<*> {
   const [sender, setSender] = useState("");
   const [email, setEmail] = useState("");
   const [content, setContent] = useState("");
-  const database = getDatabase();
   const timeStamp = format(new Date(), "dd/MM/yyyy HH:mm:ss");
   const message = {
     $key: "",
@@ -23,16 +22,18 @@ export default function MessagesView(): React$Element<*> {
 
   async function getMessagesFromFireBase() {
     try {
-      const data = database.ref("messages");
+      console.log(db);
+      var data = db.ref("messages");
+      console.log(data);
       setMessagesFireBase(data);
     } catch {
-      console.log("Error retrieving messages");
+      console.log("Error retrieving messages from Firebase");
     }
   }
 
   // Push Function
   const pushMessage = () => {
-    database.ref("messages").set(message).catch(alert);
+    db.ref("messages").push(message).catch(alert);
   };
 
   async function getMessages() {

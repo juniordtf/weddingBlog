@@ -14,7 +14,7 @@ import { getAnalytics } from "firebase/analytics";
 
 // Your web app's Firebase configuration
 // For Firebase JS SDK v7.20.0 and later, measurementId is optional
-const firebaseConfig = {
+/*const firebaseConfig = {
   apiKey: "AIzaSyDcfw7oaBYN3wnzLuVhUOzO_bRPb_Fj8x0",
   authDomain: "wedding-blog-326910.firebaseapp.com",
   databaseURL: "https://wedding-blog-326910-default-rtdb.firebaseio.com",
@@ -27,7 +27,7 @@ const firebaseConfig = {
 
 // Initialize Firebase
 const app = initializeApp(firebaseConfig);
-const analytics = getAnalytics(app);
+const analytics = getAnalytics(app);*/
 
 ReactDOM.render(
   <React.StrictMode>
@@ -39,4 +39,4 @@ ReactDOM.render(
 // If you want to start measuring performance in your app, pass a function
 // to log results (for example: reportWebVitals(console.log))
 // or send to an analytics endpoint. Learn more: https://bit.ly/CRA-vitals
-reportWebVitals(analytics);
+reportWebVitals(console.log);
