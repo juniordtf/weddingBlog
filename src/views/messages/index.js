@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { db } from "../../services/firebase.js";
+import { ref, get, set, query, onValue } from "firebase/database";
 import styles from "./styles.module.css";
 import { format } from "date-fns";
 
@@ -7,67 +8,42 @@ const emptyList: Object = [];
 
 export default function MessagesView(): React$Element<*> {
   const [messages, setMessages] = useState(emptyList);
-  const [messagesFireBase, setMessagesFireBase] = useState(emptyList);
   const [sender, setSender] = useState("");
   const [email, setEmail] = useState("");
   const [content, setContent] = useState("");
   const timeStamp = format(new Date(), "dd/MM/yyyy HH:mm:ss");
-  const message = {
-    $key: "",
-    sender,
-    content,
-    email,
-    lastModif: timeStamp,
-  };
 
-  async function getMessagesFromFireBase() {
-    try {
-      console.log(db);
-      var data = db.ref("messages");
-      console.log(data);
-      setMessagesFireBase(data);
-    } catch {
-      console.log("Error retrieving messages from Firebase");
-    }
+  async function getMessages() {
+    const dbRef = ref(db, "/messages");
+    await get(query(dbRef));
+    onValue(query(dbRef), (snapshot) => {
+      const messagesSnapshot = snapshot.val();
+      const messages = Object.values(messagesSnapshot);
+      setMessages(messages);
+    });
   }
 
   // Push Function
-  const pushMessage = () => {
-    db.ref("messages").push(message).catch(alert);
+  const Push = () => {
+    sendMessage();
+    setSender("");
+    setEmail("");
+    setContent("");
   };
 
-  async function getMessages() {
-    try {
-      const result = await JSON.parse(localStorage.getItem("messages"));
-      console.log(result);
-      setMessages(result);
-    } catch {
-      console.log("Error retrieving messages");
-    }
+  async function sendMessage() {
+    const messageId = Date.now() + sender;
+    set(ref(db, "messages/" + messageId), {
+      sender,
+      content,
+      email,
+      lastModif: timeStamp,
+    });
   }
 
   useEffect((): void => {
     getMessages();
-    getMessagesFromFireBase();
   }, []);
-
-  function submit() {
-    var updatedMessages = null;
-    pushMessage();
-
-    if (messages === null) {
-      updatedMessages = [message];
-    } else {
-      updatedMessages = messages.concat(message);
-    }
-
-    console.log("Updated messages", updatedMessages);
-    localStorage.setItem("messages", JSON.stringify(updatedMessages));
-
-    setSender("");
-    setEmail("");
-    setContent("");
-  }
 
   return (
     <div className={styles.messagesView}>
@@ -99,7 +75,7 @@ export default function MessagesView(): React$Element<*> {
             onChange={(e) => setContent(e.target.value)}
           />
           <div className={styles.submitContainer}>
-            <input type="submit" value="Publicar" onClick={() => submit()} />
+            <input type="submit" value="Publicar" onClick={() => Push()} />
           </div>
         </form>
       </div>
@@ -122,25 +98,6 @@ export default function MessagesView(): React$Element<*> {
         </div>
       )}
 
-      <div className={styles.emptyDiv} />
-
-      {messagesFireBase != null ? (
-        messagesFireBase.map((item, index) => (
-          <div
-            className={index % 2 ? styles.evenCard : styles.oddCard}
-            key={index}
-          >
-            <p className={styles.sender}>{item.sender}</p>
-            <p className={styles.content}>{item.content}</p>
-          </div>
-        ))
-      ) : (
-        <div>
-          <p className={styles.bodyText}>
-            Nenhuma mensagem ainda. Seja o primeiro a nos deixar um recado!
-          </p>
-        </div>
-      )}
       <div className={styles.emptyDiv} />
     </div>
   );
