@@ -29,21 +29,27 @@
 }
 
 .row {
-  height: 230px;
-  margin-top: 40px;
   display: "flex";
   margin-left: 10%;
   margin-right: 10%;
 }
 
 .rightImage {
-  margin: 10px 20px;
+  vertical-align: middle;
+  height: 100%;
+  margin: 10px 10px;
   float: right;
+  width: 210px;
+  height: 160px;
 }
 
 .leftImage {
+  vertical-align: middle;
+  height: 100%;
   margin: 10px 20px;
   float: left;
+  width: 210px;
+  height: 160px;
 }
 
 .cardText {
@@ -51,10 +57,15 @@
   font-size: 14px;
   text-align: justify;
   color: black;
-  display: block;
   margin-block-start: 1em;
   margin-block-end: 1em;
   margin-inline-start: 0px;
   margin-inline-end: 0px;
+  padding: 20px 20px;
 }
 
+.content {
+  display: inline-block;
+  overflow: hidden;
+  margin-top: 5px;
+}

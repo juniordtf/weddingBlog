@@ -2,7 +2,10 @@ import React, { useState, useEffect } from "react";
 import { db } from "../../services/firebase.js";
 import { ref, get, set, query, onValue } from "firebase/database";
 import styles from "./styles.module.css";
+import { v4 as uuidv4 } from "uuid";
 import { format } from "date-fns";
+import ReCAPTCHA from "react-google-recaptcha-enterprise";
+import { WEDDING_BLOG_RECAPTCHA_KEY } from "../../config/local.env.js";
 
 const emptyList: Object = [];
 
@@ -32,7 +35,7 @@ export default function MessagesView(): React$Element<*> {
   };
 
   async function sendMessage() {
-    const messageId = Date.now() + sender;
+    const messageId = uuidv4();
     set(ref(db, "messages/" + messageId), {
       sender,
       content,
@@ -44,6 +47,10 @@ export default function MessagesView(): React$Element<*> {
   useEffect((): void => {
     getMessages();
   }, []);
+
+  function onChange(value) {
+    console.log("Captcha value:", value);
+  }
 
   return (
     <div className={styles.messagesView}>
@@ -74,6 +81,7 @@ export default function MessagesView(): React$Element<*> {
             value={content}
             onChange={(e) => setContent(e.target.value)}
           />
+          <ReCAPTCHA sitekey={WEDDING_BLOG_RECAPTCHA_KEY} onChange={onChange} />
           <div className={styles.submitContainer}>
             <input type="submit" value="Publicar" onClick={() => Push()} />
           </div>
