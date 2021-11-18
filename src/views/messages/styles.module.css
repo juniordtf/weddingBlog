@@ -142,3 +142,18 @@ input[type="submit"]:hover {
   margin-right: 10px;
   margin-bottom: 10px;
 }
+
+.timeStamp {
+  text-align: right;
+  margin-right: 10px;
+  margin-bottom: 5px;
+  font-size: small;
+  color: gray;
+  font-family: "LucidaCalligraphy";
+  font-weight: 300;
+}
+
+.recaptcha {
+  margin-left: 10px;
+  margin-right: 10px;
+}

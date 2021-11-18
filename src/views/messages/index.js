@@ -14,6 +14,7 @@ export default function MessagesView(): React$Element<*> {
   const [sender, setSender] = useState("");
   const [email, setEmail] = useState("");
   const [content, setContent] = useState("");
+  const [isRecaptchaTokenValid, setRecaptchaTokenValid] = useState(false);
   const timeStamp = format(new Date(), "dd/MM/yyyy HH:mm:ss");
 
   async function getMessages() {
@@ -22,16 +23,32 @@ export default function MessagesView(): React$Element<*> {
     onValue(query(dbRef), (snapshot) => {
       const messagesSnapshot = snapshot.val();
       const messages = Object.values(messagesSnapshot);
-      setMessages(messages);
+      sortMessagesByDate(messages);
     });
+  }
+
+  function sortMessagesByDate(retrievedMessages) {
+    var sortedMessages = retrievedMessages
+      .sort((a, b) => {
+        return (
+          new Date(a.lastModif).getTime() - new Date(b.lastModif).getTime()
+        );
+      })
+      .reverse();
+
+    setMessages(sortedMessages);
   }
 
   // Push Function
   const Push = () => {
-    sendMessage();
-    setSender("");
-    setEmail("");
-    setContent("");
+    if (isRecaptchaTokenValid) {
+      sendMessage();
+      setSender("");
+      setEmail("");
+      setContent("");
+    }
+
+    setRecaptchaTokenValid(false);
   };
 
   async function sendMessage() {
@@ -50,6 +67,7 @@ export default function MessagesView(): React$Element<*> {
 
   function onChange(value) {
     console.log("Captcha value:", value);
+    setRecaptchaTokenValid(true);
   }
 
   return (
@@ -81,7 +99,12 @@ export default function MessagesView(): React$Element<*> {
             value={content}
             onChange={(e) => setContent(e.target.value)}
           />
-          <ReCAPTCHA sitekey={WEDDING_BLOG_RECAPTCHA_KEY} onChange={onChange} />
+          <div className={styles.recaptcha}>
+            <ReCAPTCHA
+              sitekey={WEDDING_BLOG_RECAPTCHA_KEY}
+              onChange={onChange}
+            />
+          </div>
           <div className={styles.submitContainer}>
             <input type="submit" value="Publicar" onClick={() => Push()} />
           </div>
@@ -96,6 +119,9 @@ export default function MessagesView(): React$Element<*> {
           >
             <p className={styles.sender}>{item.sender}</p>
             <p className={styles.content}>{item.content}</p>
+            <p className={styles.timeStamp}>
+              {item.lastModif.substring(0, 16)}
+            </p>
           </div>
         ))
       ) : (

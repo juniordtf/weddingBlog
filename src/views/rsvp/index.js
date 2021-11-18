@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import styles from "./styles.module.css";
 import ReCAPTCHA from "react-google-recaptcha-enterprise";
+import Swal from "sweetalert2";
 import {
   WEDDING_BLOG_RECAPTCHA_KEY,
   EMAIL_JS_SERVICE_ID,
@@ -21,9 +22,11 @@ export default function Rsvp(): React$Element<*> {
     message: "",
   };
   const [toSend, setToSend] = useState(initialData);
+  const [isRecaptchaTokenValid, setRecaptchaTokenValid] = useState(false);
 
   function onChange(value) {
     console.log("Captcha value:", value);
+    setRecaptchaTokenValid(true);
   }
 
   const handleChange = (e) => {
@@ -33,15 +36,24 @@ export default function Rsvp(): React$Element<*> {
   const sendEmail = (e) => {
     e.preventDefault();
 
-    emailjs
-      .send(EMAIL_JS_SERVICE_ID, EMAIL_JS_TEMPLATE_ID, toSend, EMAIL_JS_USER_ID)
-      .then((response) => {
-        console.log("SUCCESS!", response.status, response.text);
-        setToSend(initialData);
-      })
-      .catch((err) => {
-        console.log("FAILED...", err);
-      });
+    if (isRecaptchaTokenValid) {
+      emailjs
+        .send(
+          EMAIL_JS_SERVICE_ID,
+          EMAIL_JS_TEMPLATE_ID,
+          toSend,
+          EMAIL_JS_USER_ID
+        )
+        .then((response) => {
+          console.log("SUCCESS!", response.status, response.text);
+          setToSend(initialData);
+          Swal.fire("Formulário enviado!", "Obrigado pelo contato.", "success");
+        })
+        .catch((err) => {
+          console.log("FAILED...", err);
+        });
+    }
+    setRecaptchaTokenValid(false);
   };
 
   return (
