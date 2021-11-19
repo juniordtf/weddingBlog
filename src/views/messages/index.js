@@ -5,6 +5,7 @@ import styles from "./styles.module.css";
 import { v4 as uuidv4 } from "uuid";
 import { format } from "date-fns";
 import ReCAPTCHA from "react-google-recaptcha-enterprise";
+import Swal from "sweetalert2";
 import { WEDDING_BLOG_RECAPTCHA_KEY } from "../../config/local.env.js";
 
 const emptyList: Object = [];
@@ -16,6 +17,7 @@ export default function MessagesView(): React$Element<*> {
   const [content, setContent] = useState("");
   const [isRecaptchaTokenValid, setRecaptchaTokenValid] = useState(false);
   const timeStamp = format(new Date(), "dd/MM/yyyy HH:mm:ss");
+  let errors = {};
 
   async function getMessages() {
     const dbRef = ref(db, "/messages");
@@ -41,11 +43,27 @@ export default function MessagesView(): React$Element<*> {
 
   // Push Function
   const Push = () => {
-    if (isRecaptchaTokenValid) {
-      sendMessage();
-      setSender("");
-      setEmail("");
-      setContent("");
+    if (handleValidation()) {
+      if (isRecaptchaTokenValid) {
+        sendMessage();
+        setSender("");
+        setEmail("");
+        setContent("");
+        errors = {};
+      }
+    } else {
+      let text = "";
+
+      if (errors.name !== undefined) text = errors.name + "<br />";
+      if (errors.email !== undefined) text += errors.email + "<br />";
+      if (errors.content !== undefined) text += errors.content + "<br />";
+
+      new Swal({
+        title: "Erro",
+        type: "error",
+        html: text,
+        icon: "error",
+      });
     }
 
     setRecaptchaTokenValid(false);
@@ -70,6 +88,55 @@ export default function MessagesView(): React$Element<*> {
     setRecaptchaTokenValid(true);
   }
 
+  function handleValidation() {
+    let formIsValid = true;
+
+    //Name
+    if (sender.trim() === "") {
+      formIsValid = false;
+      errors["name"] = "O nome é obrigatório";
+    }
+
+    if (sender.trim() !== "" && sender !== undefined) {
+      if (!sender.match(/^[a-zA-Z]+$/)) {
+        formIsValid = false;
+        errors["name"] = "O campo nome deve conter apenas letras";
+      }
+    }
+
+    //Email
+    if (email.trim() === "") {
+      formIsValid = false;
+      errors["email"] = "O email é obrigatório";
+    }
+
+    if (email.trim() !== "" && email !== undefined) {
+      let lastAtPos = email.lastIndexOf("@");
+      let lastDotPos = email.lastIndexOf(".");
+
+      if (
+        !(
+          lastAtPos < lastDotPos &&
+          lastAtPos > 0 &&
+          email.indexOf("@@") === -1 &&
+          lastDotPos > 2 &&
+          email.length - lastDotPos > 2
+        )
+      ) {
+        formIsValid = false;
+        errors["email"] = "O email fornecido não é válido";
+      }
+    }
+
+    //Confirmation
+    if (content.trim() === "") {
+      formIsValid = false;
+      errors["content"] = "Por favor, insira um comentário";
+    }
+
+    return formIsValid;
+  }
+
   return (
     <div className={styles.messagesView}>
       <p className={styles.title}>Recados</p>
@@ -78,7 +145,7 @@ export default function MessagesView(): React$Element<*> {
         mauris et magna tempus euismod. Quisque fermentum enim a tellus.
       </p>
       <div className={styles.messageInputContainer}>
-        <form>
+        <form onSubmit={() => Push()}>
           <label className={styles.label}>Nome</label>
           <input
             className={styles.inputField}
@@ -106,7 +173,7 @@ export default function MessagesView(): React$Element<*> {
             />
           </div>
           <div className={styles.submitContainer}>
-            <input type="submit" value="Publicar" onClick={() => Push()} />
+            <input type="submit" value="Publicar" />
           </div>
         </form>
       </div>

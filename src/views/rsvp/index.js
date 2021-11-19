@@ -23,6 +23,7 @@ export default function Rsvp(): React$Element<*> {
   };
   const [toSend, setToSend] = useState(initialData);
   const [isRecaptchaTokenValid, setRecaptchaTokenValid] = useState(false);
+  let errors = {};
 
   function onChange(value) {
     console.log("Captcha value:", value);
@@ -36,25 +37,101 @@ export default function Rsvp(): React$Element<*> {
   const sendEmail = (e) => {
     e.preventDefault();
 
-    if (isRecaptchaTokenValid) {
-      emailjs
-        .send(
-          EMAIL_JS_SERVICE_ID,
-          EMAIL_JS_TEMPLATE_ID,
-          toSend,
-          EMAIL_JS_USER_ID
-        )
-        .then((response) => {
-          console.log("SUCCESS!", response.status, response.text);
-          setToSend(initialData);
-          Swal.fire("Formulário enviado!", "Obrigado pelo contato.", "success");
-        })
-        .catch((err) => {
-          console.log("FAILED...", err);
-        });
+    if (handleValidation(toSend)) {
+      if (isRecaptchaTokenValid) {
+        emailjs
+          .send(
+            EMAIL_JS_SERVICE_ID,
+            EMAIL_JS_TEMPLATE_ID,
+            toSend,
+            EMAIL_JS_USER_ID
+          )
+          .then((response) => {
+            console.log("SUCCESS!", response.status, response.text);
+            errors = {};
+            setToSend(initialData);
+            Swal.fire(
+              "Formulário enviado!",
+              "Obrigado pelo contato.",
+              "success"
+            );
+          })
+          .catch((err) => {
+            console.log("FAILED...", err);
+            errors = {};
+            Swal.fire(
+              "Formulário não pôde ser enviado!",
+              "Tente novamente mais tarde.",
+              "error"
+            );
+          });
+      }
+      setRecaptchaTokenValid(false);
+    } else {
+      let text = "";
+
+      if (errors.name !== undefined) text = errors.name + "<br />";
+      if (errors.email !== undefined) text += errors.email + "<br />";
+      if (errors.confirmation !== undefined)
+        text += errors.confirmation + "<br />";
+
+      new Swal({
+        title: "Erro",
+        type: "error",
+        html: text,
+        icon: "error",
+      });
     }
-    setRecaptchaTokenValid(false);
   };
+
+  function handleValidation(toSend) {
+    let formIsValid = true;
+
+    //Name
+    if (toSend.from_name.trim() === "") {
+      formIsValid = false;
+      errors["name"] = "O nome é obrigatório";
+    }
+
+    if (toSend.from_name.trim() !== "" && toSend.from_name !== undefined) {
+      if (!toSend.from_name.match(/^[a-zA-Z]+$/)) {
+        formIsValid = false;
+        errors["name"] = "O campo nome deve conter apenas letras";
+      }
+    }
+
+    //Email
+    if (toSend.email.trim() === "") {
+      formIsValid = false;
+      errors["email"] = "O email é obrigatório";
+    }
+
+    if (toSend.email.trim() !== "" && toSend.email !== undefined) {
+      let lastAtPos = toSend.email.lastIndexOf("@");
+      let lastDotPos = toSend.email.lastIndexOf(".");
+
+      if (
+        !(
+          lastAtPos < lastDotPos &&
+          lastAtPos > 0 &&
+          toSend.email.indexOf("@@") === -1 &&
+          lastDotPos > 2 &&
+          toSend.email.length - lastDotPos > 2
+        )
+      ) {
+        formIsValid = false;
+        errors["email"] = "O email fornecido não é válido";
+      }
+    }
+
+    //Confirmation
+    if (toSend.confirmation !== "Sim" && toSend.confirmation !== "Não") {
+      formIsValid = false;
+      errors["confirmation"] = "Por favor, informe se irá à festa";
+    }
+
+    return formIsValid;
+  }
 
   return (
     <div className={styles.rsvp}>
