@@ -154,6 +154,6 @@ input[type="submit"]:hover {
 }
 
 .recaptcha {
-  margin-left: 10px;
-  margin-right: 10px;
+  transform: scale(0.77);
+  transform-origin: 0 0;
 }

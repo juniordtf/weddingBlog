@@ -204,7 +204,12 @@ export default function Rsvp(): React$Element<*> {
             value={toSend.message}
             onChange={handleChange}
           />
-          <ReCAPTCHA sitekey={WEDDING_BLOG_RECAPTCHA_KEY} onChange={onChange} />
+          <div className={styles.recaptcha}>
+            <ReCAPTCHA
+              sitekey={WEDDING_BLOG_RECAPTCHA_KEY}
+              onChange={onChange}
+            />
+          </div>
           <div className={styles.submitContainer}>
             <input type="submit" value="Enviar" />
           </div>

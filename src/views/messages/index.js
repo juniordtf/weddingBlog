@@ -42,7 +42,9 @@ export default function MessagesView(): React$Element<*> {
   }
 
   // Push Function
-  const Push = () => {
+  const Push = (event) => {
+    event.preventDefault();
+
     if (handleValidation()) {
       if (isRecaptchaTokenValid) {
         sendMessage();
@@ -145,7 +147,7 @@ export default function MessagesView(): React$Element<*> {
         mauris et magna tempus euismod. Quisque fermentum enim a tellus.
       </p>
       <div className={styles.messageInputContainer}>
-        <form onSubmit={() => Push()}>
+        <form onSubmit={Push}>
           <label className={styles.label}>Nome</label>
           <input
             className={styles.inputField}
