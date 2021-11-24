@@ -94,7 +94,7 @@ export default function Rsvp(): React$Element<*> {
     }
 
     if (toSend.from_name.trim() !== "" && toSend.from_name !== undefined) {
-      if (!toSend.from_name.match(/^[a-zA-Z]+$/)) {
+      if (toSend.from_name.match(/\d/)) {
         formIsValid = false;
         errors["name"] = "O campo nome deve conter apenas letras";
       }

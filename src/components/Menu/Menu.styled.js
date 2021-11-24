@@ -41,6 +41,10 @@ export const StyledMenu = styled.nav`
     &:hover {
       background-color: ${({ theme }) => theme.secondaryGold};
     }
+
+    &:active {
+      background-color: ${({ theme }) => theme.primaryBrown};
+    }
   }
 
   h1 {

@@ -1,7 +1,6 @@
 import React from "react";
 import { bool } from "prop-types";
 import { StyledMenu } from "./Menu.styled";
-import Engagement from "./assets/engagement.png";
 import Monograma from "./assets/MonogramaEFlores.png";
 
 const Menu = ({ open, mobile, ...props }) => {
@@ -19,7 +18,7 @@ const Menu = ({ open, mobile, ...props }) => {
         <span aria-hidden="true">⌂ </span>
         Home
       </a>
-      <a href="/nossaHistoria" tabIndex={tabIndex}>
+      <a href="/nossaHistoria" tabIndex={tabIndex} class="active">
         <span aria-hidden="true">👩‍❤️‍👨 </span>
         Nossa historia
       </a>
@@ -31,15 +30,15 @@ const Menu = ({ open, mobile, ...props }) => {
         <span aria-hidden="true">🛌 </span>
         Onde Ficar
       </a>
-      <a href="/listaDePresentes" tabIndex={tabIndex}>
+      <a href="/listaDePresentes" tabIndex={tabIndex} activeClassName="active">
         <span aria-hidden="true">🎁 </span>
         Lista de Presentes
       </a>
-      <a href="/mensagens" tabIndex={tabIndex}>
+      <a href="/mensagens" tabIndex={tabIndex} activeClassName="active">
         <span aria-hidden="true">📩 </span>
         Recados
       </a>
-      <a href="/rsvp" tabIndex={tabIndex}>
+      <a href="/rsvp" tabIndex={tabIndex} activeClassName="active">
         <span aria-hidden="true">✔️ </span>
         Confirme sua presença
       </a>

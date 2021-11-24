@@ -3,7 +3,7 @@ import { db } from "../../services/firebase.js";
 import { ref, get, set, query, onValue } from "firebase/database";
 import styles from "./styles.module.css";
 import { v4 as uuidv4 } from "uuid";
-import { format } from "date-fns";
+import { format, parse, parseISO } from "date-fns";
 import ReCAPTCHA from "react-google-recaptcha-enterprise";
 import Swal from "sweetalert2";
 import { WEDDING_BLOG_RECAPTCHA_KEY } from "../../config/local.env.js";
@@ -24,19 +24,30 @@ export default function MessagesView(): React$Element<*> {
     await get(query(dbRef));
     onValue(query(dbRef), (snapshot) => {
       const messagesSnapshot = snapshot.val();
-      const messages = Object.values(messagesSnapshot);
-      sortMessagesByDate(messages);
+      if (messagesSnapshot !== null && messagesSnapshot !== undefined) {
+        const messages = Object.values(messagesSnapshot);
+        sortMessagesByDate(messages);
+      } else {
+        setMessages(null);
+      }
     });
   }
 
   function sortMessagesByDate(retrievedMessages) {
     var sortedMessages = retrievedMessages
+      .slice()
       .sort((a, b) => {
-        return (
-          new Date(a.lastModif).getTime() - new Date(b.lastModif).getTime()
-        );
+        const dateA = parse(a.lastModif, "dd/MM/yyyy HH:mm:ss", new Date());
+        const dateB = parse(b.lastModif, "dd/MM/yyyy HH:mm:ss", new Date());
+        const formattedA = format(dateA, "yyyy-MM-dd'T'HH:mm:ss.SSSxxx");
+        const formattedB = format(dateB, "yyyy-MM-dd'T'HH:mm:ss.SSSxxx");
+        const aDate = new Date(formattedA);
+        const bDate = new Date(formattedB);
+        return aDate.getTime() - bDate.getTime();
       })
       .reverse();
+
+    console.log(sortedMessages);
 
     setMessages(sortedMessages);
   }
@@ -100,7 +111,7 @@ export default function MessagesView(): React$Element<*> {
     }
 
     if (sender.trim() !== "" && sender !== undefined) {
-      if (!sender.match(/^[a-zA-Z]+$/)) {
+      if (sender.match(/\d/)) {
         formIsValid = false;
         errors["name"] = "O campo nome deve conter apenas letras";
       }
