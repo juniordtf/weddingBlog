@@ -31,6 +31,7 @@ export const StyledMenu = styled.nav`
     text-decoration: none;
     border-bottom: 1px solid gray;
     transition: color 0.3s linear;
+    -webkit-tap-highlight-color: transparent;
 
     @media (max-width: ${({ theme }) => theme.mobile}) {
       font-size: 0.9rem;

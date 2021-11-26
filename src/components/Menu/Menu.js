@@ -18,7 +18,7 @@ const Menu = ({ open, mobile, ...props }) => {
         <span aria-hidden="true">⌂ </span>
         Home
       </a>
-      <a href="/nossaHistoria" tabIndex={tabIndex} class="active">
+      <a href="/nossaHistoria" tabIndex={tabIndex}>
         <span aria-hidden="true">👩‍❤️‍👨 </span>
         Nossa historia
       </a>
@@ -30,15 +30,15 @@ const Menu = ({ open, mobile, ...props }) => {
         <span aria-hidden="true">🛌 </span>
         Onde Ficar
       </a>
-      <a href="/listaDePresentes" tabIndex={tabIndex} activeClassName="active">
+      <a href="/listaDePresentes" tabIndex={tabIndex}>
         <span aria-hidden="true">🎁 </span>
         Lista de Presentes
       </a>
-      <a href="/mensagens" tabIndex={tabIndex} activeClassName="active">
+      <a href="/mensagens" tabIndex={tabIndex}>
         <span aria-hidden="true">📩 </span>
         Recados
       </a>
-      <a href="/rsvp" tabIndex={tabIndex} activeClassName="active">
+      <a href="/rsvp" tabIndex={tabIndex}>
         <span aria-hidden="true">✔️ </span>
         Confirme sua presença
       </a>
