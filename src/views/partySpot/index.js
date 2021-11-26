@@ -11,11 +11,13 @@ export default function PartySpotView(): React$Element<*> {
         <img src={Pin} alt="Pin" className={styles.pinImage} />
         <p className={styles.title}>Local</p>
       </div>
-      <p className={styles.bodyText}>
-        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent ac
-        mauris et magna tempus euismod. Quisque fermentum enim a tellus.
-      </p>
+      <p className={styles.centeredText}>Fazenda Topo da Serra, Moeda/MG.</p>
       <img src={PartySpot} alt="Party Spot" className={styles.mainImage} />
+      <p className={styles.bodyText}>
+        Caso deseje utilizar GPS basta buscar no Google Maps ou Waze a frase
+        "fazenda topo da serra moeda". A localização da fazenda é mostrada
+        abaixo.
+      </p>
       <div className={styles.mapContainer}>
         <MapContainer />
       </div>

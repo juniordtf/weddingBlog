@@ -28,18 +28,30 @@ export default function HomeView(): React$Element<*> {
       <p className={styles.title}>Raíssa & Djalma</p>
       <p className={styles.title2}>03.09.22</p>
       <p className={styles.bodyText}>
-        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus cursus
-        est sem. Morbi facilisis feugiat ante vitae ultrices. Sed dictum
-        vehicula condimentum. Aenean et mi rutrum, placerat dolor a, viverra
-        elit. Donec efficitur dui vel enim viverra pharetra. Donec a arcu ut
-        arcu faucibus mollis. Nullam vehicula sed massa in gravida. Etiam
-        rhoncus molestie ex eu vehicula. Nulla sit amet imperdiet turpis.
-        Praesent dapibus erat nec interdum auctor. Mauris placerat dui eget
-        lectus sagittis, a faucibus quam ultrices. Donec libero purus, malesuada
-        ac bibendum eu, porta et urna. Suspendisse potenti. Sed facilisis non
-        felis vitae ultrices. Sed euismod arcu sit amet massa auctor elementum.
-        Phasellus nec lorem ante. Praesent ac augue risus. Quisque malesuada leo
-        eget augue imperdiet condimentum.
+        Como vocês já sabem, um dos dias mais marcantes da nossa história está
+        chegando!
+      </p>
+      <p className={styles.bodyText}>
+        Vocês fazem parte dessa história e já compartilhamos muitos momentos
+        especiais juntos. Assim, ficaremos muito felizes em desfrutar desse dia
+        com vocês!
+      </p>
+      <p className={styles.bodyText}>
+        Criamos esse site para que vocês possam ter acesso às principais
+        informações a respeito da cerimônia e da celebração do nosso casamento.
+      </p>
+      <p className={styles.bodyText}>
+        Por isso, além de um pouquinho da nossa história, aqui vocês também
+        encontrarão dicas de hospedagem, deslocamento, salões de beleza, traje
+        etc.
+      </p>
+      <p className={styles.bodyText}>
+        Ah, é importante confirmar sua presença. Contamos com sua ajuda
+        preenchendo os dados necessários no campo "Confirme sua presença". (Por
+        favor, lembrem-se disso! ❤)
+      </p>
+      <p className={styles.bodyText}>
+        A contagem regressiva começa e aguardamos ansiosos!
       </p>
       <iframe
         className={styles.youtubeVideo}

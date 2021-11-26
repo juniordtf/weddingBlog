@@ -154,8 +154,7 @@ export default function MessagesView(): React$Element<*> {
     <div className={styles.messagesView}>
       <p className={styles.title}>Recados</p>
       <p className={styles.bodyText}>
-        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent ac
-        mauris et magna tempus euismod. Quisque fermentum enim a tellus.
+        Caso queira nos deixar um recado, fique à vontade!
       </p>
       <div className={styles.messageInputContainer}>
         <form onSubmit={Push}>

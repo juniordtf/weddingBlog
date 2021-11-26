@@ -34,13 +34,23 @@
   margin-right: 10%;
 }
 
+.centeredText {
+  font-family: "LucidaCalligraphy";
+  font-size: 14px;
+  text-align: center;
+  color: black;
+  margin-top: 30px;
+  margin-left: 10%;
+  margin-right: 10%;
+}
+
 .mainImage {
   display: block;
   margin-left: auto;
   margin-right: auto;
   height: auto;
   width: 60%;
-  margin-top: 40px;
+  margin-top: 20px;
   margin-bottom: 20px;
 }
 

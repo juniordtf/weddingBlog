@@ -19,24 +19,25 @@ export default function OurHistoryView(): React$Element<*> {
         <img src={Groom} alt=" Groom" className={styles.rightImage} />
       </div>
       <p className={styles.bodyText}>
-        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed nec maximus
-        est, id aliquet orci. Sed lacus mauris, placerat dignissim ante a,
-        semper tempus sem. Cras cursus nec neque condimentum pharetra. Ut
-        posuere faucibus scelerisque. Suspendisse quis leo ac tortor egestas
-        laoreet. Pellentesque faucibus finibus nisl, eu volutpat neque ornare
-        molestie. Duis lacinia nunc non ullamcorper lacinia. Duis justo dui,
-        venenatis ac lectus et, pellentesque ornare est. Mauris dictum sagittis
-        tincidunt. Quisque auctor, lacus sed finibus consectetur, lorem risus
-        ullamcorper augue, nec consequat neque nisi ut lorem. Phasellus euismod
-        est vehicula neque aliquet blandit. Aliquam justo dolor, pharetra eu
-        nulla pharetra, mollis scelerisque lacus. Nam posuere tellus sit amet
-        nulla dapibus, id eleifend est bibendum. Phasellus porta gravida tellus
-        in venenatis. Phasellus eu nisi accumsan, iaculis elit non, sodales
-        odio. Proin ac aliquet diam. Quisque tincidunt laoreet turpis, sed
-        sollicitudin quam facilisis in. Cras commodo congue tellus, commodo
-        fermentum sem varius vel. Aliquam at sem non elit tincidunt molestie.
-        Fusce auctor facilisis elit ac sollicitudin.
+        Tudo começou em 2012, na despedida de um amigo em comum. No início era
+        só uma amizade, mas graças ao incidente com a mesa da Xênia (rsrs), a
+        amizade abriu espaço para um beijo, e, em janeiro de 2013, nosso namoro
+        começou.
       </p>
+      <p className={styles.bodyText}>
+        Poucos meses depois, veio o intercâmbio do Djalma para os Estados Unidos
+        e a distância, que nas férias de 2013/2014 foi encurtada.
+      </p>
+      <p className={styles.bodyText}>
+        Desde então foram muitos momentos felizes, muitas outras viagens,
+        festas, bares, celebrações e séries do Netflix.
+      </p>
+      <p className={styles.bodyText}>
+        Até que em outubro de 2019 veio o pedido de casamento. Agora queremos
+        celebrar com vocês a nossa união e desejamos poder escrever muitas belas
+        histórias juntos!
+      </p>
+      <div className={styles.emptyDiv2} />
       <SlideShow />
       <div className={styles.emptyDiv} />
     </div>

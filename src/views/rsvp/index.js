@@ -137,8 +137,9 @@ export default function Rsvp(): React$Element<*> {
     <div className={styles.rsvp}>
       <p className={styles.title}>Confirme sua presença</p>
       <p className={styles.bodyText}>
-        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent ac
-        mauris et magna tempus euismod. Quisque fermentum enim a tellus.
+        É muito importante para nós que você confirme sua presença. Ficaremos
+        extremamente felizes em comemorar esse momento com você, mas caso não
+        possa comparecer, nos avise também.
       </p>
       <div className={styles.messageInputContainer}>
         <form onSubmit={sendEmail}>

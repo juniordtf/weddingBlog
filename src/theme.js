@@ -6,6 +6,7 @@ export const theme = {
   primaryBrown: "#4f4646",
   primaryLightGold: "#E3DFB2",
   secondaryGold: "#CFCDA5",
+  strongGold: "#B9B47B",
   secondaryLight: "#f6f6f6",
   mobile: "600px",
 };

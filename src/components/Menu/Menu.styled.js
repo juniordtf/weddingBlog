@@ -43,7 +43,7 @@ export const StyledMenu = styled.nav`
     }
 
     &:active {
-      background-color: ${({ theme }) => theme.primaryBrown};
+      background-color: ${({ theme }) => theme.strongGold};
     }
   }
 
