@@ -43,7 +43,13 @@ export const StyledMenu = styled.nav`
       background-color: ${({ theme }) => theme.secondaryGold};
     }
 
-    &:active {
+    &:active:active {
+      background-color: ${({ theme }) => theme.strongGold};
+    }
+    &:focus:focus {
+      background-color: ${({ theme }) => theme.strongGold};
+    }
+    &:target {
       background-color: ${({ theme }) => theme.strongGold};
     }
   }

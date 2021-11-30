@@ -12,37 +12,30 @@ const routes: Array<RouteDefinition> = [
   {
     path: "/",
     name: "home",
-    activeClassName: "active",
   },
   {
     path: "/nossaHistoria",
     name: "ourHistory",
-    activeClassName: "active",
   },
   {
     path: "/local",
     name: "partySpot",
-    activeClassName: "active",
   },
   {
     path: "/ondeFicar",
     name: "nearbyPlaces",
-    activeClassName: "active",
   },
   {
     path: "/listaDePresentes",
     name: "giftList",
-    activeClassName: "active",
   },
   {
     path: "/mensagens",
     name: "messages",
-    activeClassName: "active",
   },
   {
     path: "/rsvp",
     name: "rsvp",
-    activeClassName: "active",
   },
 ];
 

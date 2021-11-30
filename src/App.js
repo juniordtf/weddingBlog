@@ -28,6 +28,12 @@ function App() {
     }
   }, [width]);
 
+  function closeMenu() {
+    if (isMobile) {
+      setOpen(false);
+    }
+  }
+
   return (
     <ThemeProvider theme={theme}>
       <BrowserRouter>
@@ -44,6 +50,7 @@ function App() {
                   />
                   <Menu
                     open={open}
+                    onClick={() => closeMenu()}
                     setOpen={setOpen}
                     mobile={true}
                     id={menuId}

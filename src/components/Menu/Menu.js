@@ -1,6 +1,7 @@
 import React from "react";
 import { bool } from "prop-types";
 import { StyledMenu } from "./Menu.styled";
+import { NavLink } from "react-router-dom";
 import Monograma from "./assets/MonogramaEFlores.png";
 
 const Menu = ({ open, mobile, ...props }) => {
@@ -14,34 +15,34 @@ const Menu = ({ open, mobile, ...props }) => {
         <h1>Raíssa & Djalma</h1>
         <h2>03.09.22</h2>
       </div>
-      <a href="/" tabIndex={tabIndex}>
+      <NavLink to="/" tabIndex={tabIndex}>
         <span aria-hidden="true">⌂ </span>
         Home
-      </a>
-      <a href="/nossaHistoria" tabIndex={tabIndex}>
+      </NavLink>
+      <NavLink to="/nossaHistoria" tabIndex={tabIndex}>
         <span aria-hidden="true">👩‍❤️‍👨 </span>
         Nossa historia
-      </a>
-      <a href="/local" tabIndex={tabIndex}>
+      </NavLink>
+      <NavLink to="/local" tabIndex={tabIndex}>
         <span aria-hidden="true">🎉 </span>
         Local
-      </a>
-      <a href="/ondeFicar" tabIndex={tabIndex}>
+      </NavLink>
+      <NavLink to="/ondeFicar" tabIndex={tabIndex}>
         <span aria-hidden="true">🛌 </span>
         Onde Ficar
-      </a>
-      <a href="/listaDePresentes" tabIndex={tabIndex}>
+      </NavLink>
+      <NavLink to="/listaDePresentes" tabIndex={tabIndex}>
         <span aria-hidden="true">🎁 </span>
         Lista de Presentes
-      </a>
-      <a href="/mensagens" tabIndex={tabIndex}>
+      </NavLink>
+      <NavLink to="/mensagens" tabIndex={tabIndex}>
         <span aria-hidden="true">📩 </span>
         Recados
-      </a>
-      <a href="/rsvp" tabIndex={tabIndex}>
+      </NavLink>
+      <NavLink to="/rsvp" tabIndex={tabIndex}>
         <span aria-hidden="true">✔️ </span>
         Confirme sua presença
-      </a>
+      </NavLink>
     </StyledMenu>
   );
 };
