@@ -56,11 +56,11 @@ export default function HomeView(): React$Element<*> {
       <iframe
         className={styles.youtubeVideo}
         width={isMobile ? 300 : 520}
-        src="https://www.youtube.com/embed/jiQiJ0WURZI"
+        src="https://www.youtube.com/embed/-HGX_phi6WA"
         title="YouTube video player"
-        frameBorder="0"
+        frameborder="0"
         allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-        allowFullScreen
+        allowfullscreen
       />
       <img
         src={HeartDivider}
