@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { Slide } from "react-slideshow-image";
 import "react-slideshow-image/dist/styles.css";
 import styles from "../styles.module.css";
@@ -15,6 +15,13 @@ const slideImages = [
 ];
 
 const SlideShow = () => {
+  useEffect((): void => {
+    slideImages.forEach((slideImages) => {
+      const img = new Image();
+      img.src = slideImages.fileName;
+    });
+  }, []);
+
   return (
     <div className={styles.slideContainer}>
       <Slide>
