@@ -3,7 +3,7 @@ import React, { useState, useEffect } from "react";
 import styles from "./styles.module.css";
 import SerraDaMoeda from "./assets/serraDaMoeda.png";
 import HeartDivider from "./assets/heart-divider.png";
-import { useWindowSize } from "../../hooks";
+import { CountDown } from "../../components";
 
 export default function HomeView(): React$Element<*> {
   const [isMobile, setIsMobile] = useState(true);
@@ -27,6 +27,10 @@ export default function HomeView(): React$Element<*> {
       <img src={SerraDaMoeda} alt="Mountains" className={styles.mainImage} />
       <p className={styles.title}>Raíssa & Djalma</p>
       <p className={styles.title2}>03.09.22</p>
+      <CountDown
+        timeTillDate="09 03 2022, 4:00 pm"
+        timeFormat="MM DD YYYY, h:mm a"
+      />
       <p className={styles.bodyText}>
         Como vocês já sabem, um dos dias mais marcantes da nossa história está
         chegando!
