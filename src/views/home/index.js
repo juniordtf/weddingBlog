@@ -26,7 +26,7 @@ export default function HomeView(): React$Element<*> {
     <div className={styles.homeView}>
       <img src={SerraDaMoeda} alt="Mountains" className={styles.mainImage} />
       <p className={styles.title}>Raíssa & Djalma</p>
-      <p className={styles.title2}>03.09.22</p>
+      <p className={styles.title2}>03.09.22 às 16 hrs</p>
       <CountDown
         timeTillDate="09 03 2022, 4:00 pm"
         timeFormat="MM DD YYYY, h:mm a"
