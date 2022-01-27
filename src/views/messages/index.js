@@ -3,7 +3,7 @@ import { db } from "../../services/firebase.js";
 import { ref, get, set, query, onValue } from "firebase/database";
 import styles from "./styles.module.css";
 import { v4 as uuidv4 } from "uuid";
-import { format, parse, parseISO } from "date-fns";
+import { format, parse } from "date-fns";
 import ReCAPTCHA from "react-google-recaptcha-enterprise";
 import Swal from "sweetalert2";
 import { WEDDING_BLOG_RECAPTCHA_KEY } from "../../config/local.env.js";
@@ -94,7 +94,7 @@ export default function MessagesView(): React$Element<*> {
 
   useEffect((): void => {
     getMessages();
-  }, []);
+  }, [getMessages]);
 
   function onChange(value) {
     console.log("Captcha value:", value);

@@ -7,6 +7,7 @@ import { CountDown } from "../../components";
 
 export default function HomeView(): React$Element<*> {
   const [isMobile, setIsMobile] = useState(true);
+  const [mobileWidth, setMobileWidth] = useState(320);
 
   useEffect((): void => {
     getWidth();
@@ -17,8 +18,14 @@ export default function HomeView(): React$Element<*> {
       const result = await JSON.parse(localStorage.getItem("isMobile"));
       console.log(result);
       setIsMobile(result);
+
+      if (result) {
+        const width = await JSON.parse(localStorage.getItem("mobileWidth"));
+        console.log(width);
+        setMobileWidth(width);
+      }
     } catch {
-      console.log("Error retrieving messages");
+      console.log("Error retrieving mobile with");
     }
   }
 
@@ -59,7 +66,7 @@ export default function HomeView(): React$Element<*> {
       </p>
       <iframe
         className={styles.youtubeVideo}
-        width={isMobile ? 300 : 520}
+        width={isMobile ? mobileWidth - 20 : 520}
         src="https://www.youtube.com/embed/-HGX_phi6WA"
         title="YouTube video player"
         frameborder="0"

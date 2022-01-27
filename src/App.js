@@ -22,6 +22,7 @@ function App() {
     if (width < 600) {
       setIsMobile(true);
       localStorage.setItem("isMobile", true);
+      localStorage.setItem("mobileWidth", width);
     } else {
       setIsMobile(false);
       localStorage.setItem("isMobile", false);
