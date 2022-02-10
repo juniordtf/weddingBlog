@@ -4,7 +4,7 @@ import styles from "./styles.module.css";
 
 class CountDown extends Component {
   state = {
-    months: undefined,
+    weeks: undefined,
     days: undefined,
     hours: undefined,
     minutes: undefined,
@@ -16,14 +16,26 @@ class CountDown extends Component {
       const { timeTillDate, timeFormat } = this.props;
       const then = moment(timeTillDate, timeFormat);
       const now = moment();
-      const countdown = moment(then - now);
-      const months = countdown.format("M");
-      const days = countdown.format("D");
-      const hours = countdown.format("HH");
-      const minutes = countdown.format("mm");
-      const seconds = countdown.format("ss");
+      let difference = +new Date(then) - +new Date(now);
+      let timeLeft = {};
 
-      this.setState({ months, days, hours, minutes, seconds });
+      if (difference > 0) {
+        timeLeft = {
+          weeks: Math.floor(difference / (1000 * 60 * 60 * 24 * 7)),
+          days: Math.floor((difference / (1000 * 60 * 60 * 24)) % 7),
+          hours: Math.floor((difference / (1000 * 60 * 60)) % 24),
+          minutes: Math.floor((difference / 1000 / 60) % 60),
+          seconds: Math.floor((difference / 1000) % 60),
+        };
+      }
+
+      this.setState({
+        weeks: timeLeft.weeks,
+        days: timeLeft.days,
+        hours: timeLeft.hours,
+        minutes: timeLeft.minutes,
+        seconds: timeLeft.seconds,
+      });
     }, 1000);
   }
 
@@ -34,8 +46,8 @@ class CountDown extends Component {
   }
 
   render() {
-    const { months, days, hours, minutes, seconds } = this.state;
-    const monthsRadius = mapNumber(months, 12, 0, 0, 360);
+    const { weeks, days, hours, minutes, seconds } = this.state;
+    const weeksRadius = mapNumber(weeks, 30, 0, 0, 360);
     const daysRadius = mapNumber(days, 30, 0, 0, 360);
     const hoursRadius = mapNumber(hours, 24, 0, 0, 360);
     const minutesRadius = mapNumber(minutes, 60, 0, 0, 360);
@@ -48,11 +60,11 @@ class CountDown extends Component {
     return (
       <div>
         <div className={styles.countdownWrapper}>
-          {months && (
+          {weeks && (
             <div className={styles.countdownItem}>
-              <SVGCircle radius={monthsRadius} />
-              {months}
-              <span className={styles.text}>meses</span>
+              <SVGCircle radius={weeksRadius} />
+              {weeks}
+              <span className={styles.text}>semanas</span>
             </div>
           )}
           {days && (
