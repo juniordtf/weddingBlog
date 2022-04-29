@@ -1,6 +1,6 @@
 import React from "react";
 import styles from "./styles.module.css";
-import Hotel01 from "./assets/flor-da-vida.png";
+import Hotel01 from "./assets/pousadaMaravilhas.jpeg";
 import Hotel02 from "./assets/hotel_moedense.png";
 
 export default function NearbyPlacesView(): React$Element<*> {
@@ -16,16 +16,17 @@ export default function NearbyPlacesView(): React$Element<*> {
       <div className={styles.row}>
         <img
           src={Hotel01}
-          alt=" Hotel Serra da Moeda"
+          alt="Pousada Maravilhas"
           className={styles.leftImage}
         />
         <div className={styles.bodyContent}>
-          <p className={styles.headingText}>Pousada Flor da Vida</p>
+          <p className={styles.headingText}>Pousada Maravilhas da Serra</p>
 
+          <p className={styles.cardText}>Endereço: Área Rural, Moeda/MG</p>
+          <p className={styles.cardText}>Instagram: @pousdamaravilhas</p>
           <p className={styles.cardText}>
-            Endereço: Área Rural, Fazenda Bela Vista, Moeda/MG
+            Reservas: 31 98584-0438 – falar com Nathália.
           </p>
-          <p className={styles.cardText}>Instagram: @flordavidaholistico</p>
         </div>
       </div>
       <div className={styles.row}>

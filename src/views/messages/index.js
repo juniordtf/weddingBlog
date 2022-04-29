@@ -94,7 +94,8 @@ export default function MessagesView(): React$Element<*> {
 
   useEffect((): void => {
     getMessages();
-  }, [getMessages]);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
 
   function onChange(value) {
     console.log("Captcha value:", value);
