@@ -24,8 +24,8 @@ export default function NearbyPlacesView(): React$Element<*> {
 
           <p className={styles.cardText}>Endereço: Área Rural, Moeda/MG</p>
           <p className={styles.cardText}>Instagram: @pousdamaravilhas</p>
-          <p className={styles.cardText}>
-            Reservas: 31 98584-0438 – falar com Nathália.
+          <p className={styles.cardText2}>
+            Reservas: 31 98584-0438 - falar com Nathália.
           </p>
         </div>
       </div>

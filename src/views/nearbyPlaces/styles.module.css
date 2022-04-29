@@ -57,6 +57,16 @@
   margin-right: 10%;
 }
 
+.cardText2 {
+  font-family: "LucidaCalligraphy";
+  font-size: 14px;
+  text-align: justify;
+  color: black;
+  margin-left: 10%;
+  margin-right: 10%;
+  margin-bottom: 15px;
+}
+
 .content {
   margin-top: 25px;
   height: 180px;
