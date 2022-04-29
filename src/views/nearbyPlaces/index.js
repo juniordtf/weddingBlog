@@ -23,14 +23,14 @@ export default function NearbyPlacesView(): React$Element<*> {
           <p className={styles.headingText}>Pousada Maravilhas da Serra</p>
           <p className={styles.cardText}>Endereço: Área Rural, Moeda/MG</p>
           <p className={styles.cardText2}>
-            Reservas: 31 98584-0438 - falar com Nathália.
+            Reservas: 31 98584-0438 - falar com Natália.
           </p>
-          <p className={styles.cardText}>Instagram: @pousdamaravilhas</p>
+          <p className={styles.cardText}>Instagram: @pousadamaravilhas</p>
         </div>
       </div>
       <div className={styles.row}>
         <img src={Hotel02} alt=" Hotel Moedense" className={styles.leftImage} />
-        <div className={styles.bodyContent}>
+        <div className={styles.bodyContent2}>
           <p className={styles.headingText}>Hotel Moedense</p>
           <p className={styles.cardText}>
             Endereço: Av. do Prateado, 200 - Moeda, MG, 35470-000
