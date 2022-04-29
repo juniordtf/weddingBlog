@@ -21,12 +21,11 @@ export default function NearbyPlacesView(): React$Element<*> {
         />
         <div className={styles.bodyContent}>
           <p className={styles.headingText}>Pousada Maravilhas da Serra</p>
-
           <p className={styles.cardText}>Endereço: Área Rural, Moeda/MG</p>
-          <p className={styles.cardText}>Instagram: @pousdamaravilhas</p>
           <p className={styles.cardText2}>
             Reservas: 31 98584-0438 - falar com Nathália.
           </p>
+          <p className={styles.cardText}>Instagram: @pousdamaravilhas</p>
         </div>
       </div>
       <div className={styles.row}>
