@@ -40,7 +40,7 @@ export default function NearbyPlacesView(): React$Element<*> {
           <p className={styles.cardText}>Instagram: @hotelmoedense</p>
         </div>
       </div>
-      <div className={styles.content}>
+      <div className={styles.content2}>
         <p className={styles.headingText}>Vans</p>
         <p className={styles.bodyText}>
           As vans são uma ótima opção para quem quiser voltar pra casa no mesmo
