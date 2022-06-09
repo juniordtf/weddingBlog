@@ -1,7 +1,8 @@
 import React from "react";
 import styles from "./styles.module.css";
 import Hotel01 from "./assets/pousadaMaravilhas.jpeg";
-import Hotel02 from "./assets/hotel_moedense.png";
+import Hotel02 from "./assets/cachoeiras-da-serra.jpeg";
+import Hotel03 from "./assets/hotel_moedense.png";
 
 export default function NearbyPlacesView(): React$Element<*> {
   return (
@@ -29,11 +30,26 @@ export default function NearbyPlacesView(): React$Element<*> {
         </div>
       </div>
       <div className={styles.row}>
-        <img src={Hotel02} alt=" Hotel Moedense" className={styles.leftImage} />
+        <img
+          src={Hotel02}
+          alt="Cachoeiras da Serra"
+          className={styles.leftImage}
+        />
+        <div className={styles.bodyContent}>
+          <p className={styles.headingText}>Cachoeiras da Serra</p>
+          <p className={styles.cardText}>
+            Endereço: Rod. Paulo Alves do Carmo, Km4 - Velha, Moeda/MG
+          </p>
+          <p className={styles.cardText2}>Reservas: 31 3309-7415</p>
+          <p className={styles.cardText}>Instagram: @cachoeiras_da_serra</p>
+        </div>
+      </div>
+      <div className={styles.row}>
+        <img src={Hotel03} alt=" Hotel Moedense" className={styles.leftImage} />
         <div className={styles.bodyContent2}>
           <p className={styles.headingText}>Hotel Moedense</p>
           <p className={styles.cardText}>
-            Endereço: Av. do Prateado, 200 - Moeda, MG, 35470-000
+            Endereço: Av. do Prateado, 200 - Moeda/MG
           </p>
           <p className={styles.cardText}>Telefone: (31) 3575-1030</p>
           <p className={styles.cardText}>Instagram: @hotelmoedense</p>
