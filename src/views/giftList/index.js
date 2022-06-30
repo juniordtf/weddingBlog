@@ -13,15 +13,15 @@ export default function GiftListView(): React$Element<*> {
       <div className={styles.linksArea}>
         <a
           className={styles.linkText}
-          href="https://sites.icasei.com.br/raissaedjalma/pages/27050363"
-        >
-          Icasei
-        </a>
-        <a
-          className={styles.linkText}
           href="https://www.querodecasamento.com.br/lista-de-casamento/raissa--djalma"
         >
           Quero de casamento
+        </a>
+        <a
+          className={styles.linkText}
+          href="https://sites.icasei.com.br/raissaedjalma/pages/27050363"
+        >
+          Icasei
         </a>
       </div>
     </div>
