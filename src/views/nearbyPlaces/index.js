@@ -3,6 +3,7 @@ import styles from "./styles.module.css";
 import Hotel01 from "./assets/pousadaMaravilhas.jpeg";
 import Hotel02 from "./assets/cachoeiras-da-serra.jpeg";
 import Hotel03 from "./assets/hotel_moedense.png";
+import Hotel04 from "./assets/pousadaMoedaReal.jpeg";
 
 export default function NearbyPlacesView(): React$Element<*> {
   return (
@@ -27,6 +28,23 @@ export default function NearbyPlacesView(): React$Element<*> {
             Reservas: 31 98584-0438 - falar com Natália.
           </p>
           <p className={styles.cardText}>Instagram: @pousadamaravilhas</p>
+        </div>
+      </div>
+      <div className={styles.row}>
+        <img
+          src={Hotel04}
+          alt="Estalagem Moeda Real"
+          className={styles.leftImage}
+        />
+        <div className={styles.bodyContent}>
+          <p className={styles.headingText}>Pousada Estalagem Moeda Real</p>
+          <p className={styles.cardText}>
+            Estrada de Azevedo, s/n - Azevedo, Moeda/MG
+          </p>
+          <p className={styles.cardText2}>
+            Reservas: 31 99626-3795 - falar com Jean.
+          </p>
+          <p className={styles.cardText}>Instagram: @estalagemmoedareal</p>
         </div>
       </div>
       <div className={styles.row}>
